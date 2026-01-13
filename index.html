@@ -23,24 +23,51 @@
         function playRound(humanChoice, computerChoice) {
 
             // winner, loser, and tied message
-            winner = `You win! ${humanChoice} beats ${computerChoice}!`;
-            loser = `You lost lol. ${computerChoice} beats ${humanChoice}.`;
-            tied = `A tie. You both chose ${computerChoice}!`;
+            const winner = `You win! ${humanChoice} beats ${computerChoice}!`;
+            const loser = `You lost lol. ${computerChoice} beats ${humanChoice}.`;
+            const tied = `A tie. You both chose ${computerChoice}!`;
+            let message;
 
             switch (humanChoice.toLowerCase()) {
                 case "rock":
-                    return (computerChoice === "Rock") ? tied : (computerChoice === "Paper") ? loser : winner;                    break;
+                    if (computerChoice === "Rock") {
+                        message = tied;
+                    } else if (computerChoice === "Paper") {
+                        message = loser;
+                        computerScore++;
+                    } else {
+                        message = winner;
+                        humanScore++;
+                    }
+                    break;
                 case "paper":
-                    return (computerChoice === "Rock") ? winner : (computerChoice === "Paper") ? tied : loser;
+                    if (computerChoice === "Rock") {
+                        message = winner;
+                        humanScore++;
+                    } else if (computerChoice === "Paper") {
+                        message = tied;
+                    } else {
+                        message = loser;
+                        computerScore++;
+                    }
                     break;
                 case "scissors":
-                    return (computerChoice === "Rock") ? loser : (computerChoice === "Paper") ? winner : tied;
+                    if (computerChoice === "Rock") {
+                        message = loser;
+                        computerScore++;
+                    } else if (computerChoice === "Paper") {
+                        message = winner;
+                        humanScore++;
+                    } else {
+                        message = tied;
+                    }
                     break;
                 default:
                     console.log("What are you doing? That isn't a choice.");
                     break;
-
             }
+
+            console.log(message);
         }
     </script>
 </head>
