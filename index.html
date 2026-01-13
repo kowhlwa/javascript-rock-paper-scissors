@@ -17,6 +17,30 @@
         let getHumanChoice = () => {
             let choice = prompt("Rock, Papers, or Scissors?");
             return choice;
+        };
+
+        // plays a round of rock, paper, and scissors.
+        function playRound(humanChoice, computerChoice) {
+
+            // winner, loser, and tied message
+            winner = `You win! ${humanChoice} beats ${computerChoice}!`;
+            loser = `You lost lol. ${computerChoice} beats ${humanChoice}.`;
+            tied = `A tie. You both chose ${computerChoice}!`;
+
+            switch (humanChoice.toLowerCase()) {
+                case "rock":
+                    return (computerChoice === "Rock") ? tied : (computerChoice === "Paper") ? loser : winner;                    break;
+                case "paper":
+                    return (computerChoice === "Rock") ? winner : (computerChoice === "Paper") ? tied : loser;
+                    break;
+                case "scissors":
+                    return (computerChoice === "Rock") ? loser : (computerChoice === "Paper") ? winner : tied;
+                    break;
+                default:
+                    console.log("What are you doing? That isn't a choice.");
+                    break;
+
+            }
         }
     </script>
 </head>
