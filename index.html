@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <meta charset = "utf-8">
+    <title>RPS</title>
+    <script>
+        // randomly returns rock, paper, or scissors.
+        let humanScore = 0;
+        let computerScore = 0;
+        function getComputerChoice() {
+            let choice = Math.floor(Math.random() * 3);
+            return (choice === 0) ? "Rock" : (choice === 1) ? "Paper" : "Scissors";
+        }
+
+        // prompts user for rock, paper, or scissors.
+        let getHumanChoice = () => {
+            let choice = prompt("Rock, Papers, or Scissors?");
+            return choice;
+        }
+    </script>
+</head>
+
+<body>
+</body>
+</html>
