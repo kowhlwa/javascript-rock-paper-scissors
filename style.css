@@ -1,0 +1,14 @@
+.results-box {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+.game-logs, .score-box {
+    border: 1px solid black;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.score-box {
+    align-self: start;
+}

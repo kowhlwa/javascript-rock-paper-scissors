@@ -4,81 +4,24 @@
 <head>
     <meta charset = "utf-8">
     <title>RPS</title>
-    <script>
-        // randomly returns rock, paper, or scissors.
-        let humanScore = 0;
-        let computerScore = 0;
-        function getComputerChoice() {
-            let choice = Math.floor(Math.random() * 3);
-            return (choice === 0) ? "Rock" : (choice === 1) ? "Paper" : "Scissors";
-        }
-
-        // prompts user for rock, paper, or scissors.
-        let getHumanChoice = () => {
-            let choice = prompt("Rock, Papers, or Scissors?");
-            return choice;
-        };
-
-        // plays a round of rock, paper, and scissors.
-        function playRound(humanChoice, computerChoice) {
-
-            // winner, loser, and tied message
-            const winner = `You win! ${humanChoice} beats ${computerChoice}!`;
-            const loser = `You lost lol. ${computerChoice} beats ${humanChoice}.`;
-            const tied = `A tie. You both chose ${computerChoice}!`;
-            let message;
-
-            switch (humanChoice.toLowerCase()) {
-                case "rock":
-                    if (computerChoice === "Rock") {
-                        message = tied;
-                    } else if (computerChoice === "Paper") {
-                        message = loser;
-                        computerScore++;
-                    } else {
-                        message = winner;
-                        humanScore++;
-                    }
-                    break;
-                case "paper":
-                    if (computerChoice === "Rock") {
-                        message = winner;
-                        humanScore++;
-                    } else if (computerChoice === "Paper") {
-                        message = tied;
-                    } else {
-                        message = loser;
-                        computerScore++;
-                    }
-                    break;
-                case "scissors":
-                    if (computerChoice === "Rock") {
-                        message = loser;
-                        computerScore++;
-                    } else if (computerChoice === "Paper") {
-                        message = winner;
-                        humanScore++;
-                    } else {
-                        message = tied;
-                    }
-                    break;
-                default:
-                    console.log("What are you doing? That isn't a choice.");
-                    break;
-            }
-
-            console.log(message);
-        }
-
-        // function to play 5 rounds
-        function playGame() {
-            for (let i = 0; i < 5; i++) {
-                playRound(getHumanChoice(), getComputerChoice());
-            }
-        }
-    </script>
+    <script src = "script.js" defer></script>
+    <link rel = "stylesheet" href = "style.css">
 </head>
 
 <body>
+    <button>Rock</button>
+    <button>Paper</button>
+    <button>Scissors</button>
+
+    <div class = "results-box">
+        <div class = "score-box">
+            <p id = "user-score">User:</p>
+            <p id = "computer-score">Computer:</p>
+        </div>
+        <div class = "game-logs">
+        </div>
+    </div>
+
+    <div class = "final-result"></div>
 </body>
 </html>
